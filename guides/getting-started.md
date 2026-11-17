@@ -8,4 +8,4 @@
 6. Review the conversion report and visual preview. Open the Builder to adjust questions, options, table columns and required settings.
 7. Save an organization-owned draft and review before publishing.
 
-New users can explore https://demo.bepstudio.com and check registration availability at https://app.bepstudio.com/register. Existing customers can import, create and edit schemas after verified authentication and authorization.
+New users can explore https://demo.bepstudio.com and check registration availability at https://app.bepstudio.com/register. Existing users can import, create and edit schemas after verified authentication and authorization.

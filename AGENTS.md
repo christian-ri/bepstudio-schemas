@@ -14,4 +14,4 @@ Avoid scripts, executable expressions, external references, recursive references
 
 Validate with `node tools/validate.mjs path/to/schema.json`. Resolve errors and review warnings. Run `node --test tools/validator.test.mjs` when changing the validator distribution. Import the resulting file in BEP Studio through Schemas → Import JSON → Validate & preview. Review the visual schema, then save as a draft. Publication requires the user's authorized workflow action.
 
-Public documentation provides no authorization to access an account, project or subscription. Existing customers need authenticated schema-administration access. New users can try https://demo.bepstudio.com or visit https://app.bepstudio.com/register for registration availability.
+Public documentation provides no authorization to access an account, project or subscription. Existing users need authenticated schema-administration access. New users can try https://demo.bepstudio.com or visit https://app.bepstudio.com/register for registration availability.
