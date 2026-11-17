@@ -1,0 +1,8 @@
+{
+  "validation.ts": "c99eeb42711bcd74da1386a13618f3c394b9ca7109760bbadff9e38f33324894",
+  "import-normalisation.ts": "81baa03820f22ac9fcbb440574634d0ba29a77a14ff483a3ad5aeede63398ffa",
+  "schema-types.ts": "38f4e5e05d9dd6ad39c5e15495f857d130309170bcccceaabd2ac7065182775b",
+  "project-automation.ts": "c8f08587008a025f9e34cca2c0e1099d9a0057bad429ad064224d617194fd3a4",
+  "table-data.ts": "6681ccade13e4db6aa19e6449361699b1bd9ead89deb979e296a07b5faef5f3e",
+  "schema-validator-cli.ts": "eafcec8f9fd5ab0ede7f92e8297ba20c9c6e0d1e090ab8345ed49f70cd1a94da"
+}

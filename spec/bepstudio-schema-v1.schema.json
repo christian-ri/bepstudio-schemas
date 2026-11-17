@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaFormat": {
+      "type": "string",
+      "const": "bepstudio-schema"
+    },
+    "schemaFormatVersion": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+    },
+    "description": {
+      "default": "",
+      "type": "string",
+      "maxLength": 5000
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "ui": {
+      "type": "object",
+      "properties": {
+        "pdfRenderer": {
+          "type": "string",
+          "enum": [
+            "psu",
+            "generic"
+          ]
+        }
+      }
+    },
+    "exportFormats": {
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 120
+      }
+    },
+    "sections": {
+      "minItems": 1,
+      "maxItems": 80,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "sortOrder": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 100000
+          },
+          "description": {
+            "default": "",
+            "type": "string",
+            "maxLength": 5000
+          },
+          "fields": {
+            "minItems": 1,
+            "maxItems": 200,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sortOrder": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 100000
+                },
+                "fieldType": {
+                  "type": "string",
+                  "enum": [
+                    "TEXT",
+                    "LONG_TEXT",
+                    "NUMBER",
+                    "BOOLEAN",
+                    "DATE",
+                    "SELECT",
+                    "MULTI_SELECT",
+                    "LIST"
+                  ]
+                },
+                "isRequired": {
+                  "default": false,
+                  "type": "boolean"
+                },
+                "helpText": {
+                  "type": "string",
+                  "maxLength": 5000
+                },
+                "placeholder": {
+                  "type": "string",
+                  "maxLength": 500
+                },
+                "options": {
+                  "maxItems": 100,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 240
+                  }
+                },
+                "config": {
+                  "type": "object",
+                  "properties": {
+                    "tableColumns": {
+                      "minItems": 1,
+                      "maxItems": 50,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 240
+                      }
+                    },
+                    "requiredColumns": {
+                      "maxItems": 50,
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          }
+                        ]
+                      }
+                    },
+                    "allowNotApplicable": {
+                      "type": "boolean"
+                    },
+                    "projectAutomation": {
+                      "type": "string",
+                      "enum": [
+                        "CONTACTS",
+                        "MILESTONES",
+                        "DELIVERABLES",
+                        "NONE"
+                      ]
+                    }
+                  },
+                  "additionalProperties": {}
+                },
+                "defaultValue": {}
+              },
+              "required": [
+                "key",
+                "label",
+                "fieldType"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "title",
+          "fields"
+        ]
+      }
+    }
+  },
+  "required": [
+    "key",
+    "version",
+    "sections"
+  ],
+  "$id": "https://bepstudio.com/spec/bepstudio-schema-v1.schema.json",
+  "title": "BEP Studio schema format 1.0",
+  "$comment": "Generated from BEP Studio's server validator. Use tools/validate.mjs for semantic checks including unique keys, defaults, required column references and automation mappings. Workflow roles are package metadata."
+}

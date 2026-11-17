@@ -1,0 +1,37 @@
+{
+  "schemaFormat": "bepstudio-schema",
+  "schemaFormatVersion": "1.0",
+  "key": "deliverables",
+  "label": "Deliverables",
+  "version": "1.0.0",
+  "description": "An original BEP Studio example.",
+  "sections": [
+    {
+      "key": "project",
+      "title": "Project information",
+      "description": "Identify the project.",
+      "fields": [
+        {
+          "key": "deliverables",
+          "label": "Project deliverables",
+          "fieldType": "LIST",
+          "isRequired": true,
+          "config": {
+            "tableColumns": [
+              "Deliverable",
+              "Description",
+              "Due Date",
+              "Responsible Party"
+            ],
+            "requiredColumns": [
+              "Deliverable",
+              "Due Date"
+            ],
+            "projectAutomation": "DELIVERABLES",
+            "allowNotApplicable": true
+          }
+        }
+      ]
+    }
+  ]
+}

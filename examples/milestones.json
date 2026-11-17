@@ -1,0 +1,37 @@
+{
+  "schemaFormat": "bepstudio-schema",
+  "schemaFormatVersion": "1.0",
+  "key": "milestones",
+  "label": "Milestones",
+  "version": "1.0.0",
+  "description": "An original BEP Studio example.",
+  "sections": [
+    {
+      "key": "project",
+      "title": "Project information",
+      "description": "Identify the project.",
+      "fields": [
+        {
+          "key": "milestones",
+          "label": "Project milestones",
+          "fieldType": "LIST",
+          "isRequired": true,
+          "config": {
+            "tableColumns": [
+              "Milestone",
+              "Description",
+              "Due Date",
+              "Responsible Party"
+            ],
+            "requiredColumns": [
+              "Milestone",
+              "Due Date"
+            ],
+            "projectAutomation": "MILESTONES",
+            "allowNotApplicable": true
+          }
+        }
+      ]
+    }
+  ]
+}

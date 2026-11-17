@@ -1,0 +1,131 @@
+{
+  "schemaFormat": "bepstudio-schema",
+  "schemaFormatVersion": "1.0",
+  "key": "complete-bep",
+  "label": "Complete BEP example",
+  "version": "1.0.0",
+  "description": "An original BEP Studio example.",
+  "sections": [
+    {
+      "key": "project",
+      "title": "Project information",
+      "description": "Identify the project.",
+      "fields": [
+        {
+          "key": "project-name",
+          "label": "Project name",
+          "fieldType": "TEXT",
+          "isRequired": true,
+          "placeholder": "Project name"
+        },
+        {
+          "key": "guidance",
+          "label": "Execution strategy",
+          "fieldType": "LONG_TEXT",
+          "isRequired": true,
+          "helpText": "Describe the agreed approach."
+        },
+        {
+          "key": "budget",
+          "label": "Budget",
+          "fieldType": "NUMBER",
+          "defaultValue": 0
+        },
+        {
+          "key": "approved",
+          "label": "Approved",
+          "fieldType": "BOOLEAN",
+          "defaultValue": false
+        },
+        {
+          "key": "start",
+          "label": "Start date",
+          "fieldType": "DATE"
+        },
+        {
+          "key": "delivery",
+          "label": "Delivery method",
+          "fieldType": "SELECT",
+          "options": [
+            "DBB",
+            "DB",
+            "CMAR",
+            "IPD"
+          ],
+          "defaultValue": "DBB"
+        },
+        {
+          "key": "uses",
+          "label": "BIM uses",
+          "fieldType": "MULTI_SELECT",
+          "options": [
+            "Coordination",
+            "Planning"
+          ],
+          "defaultValue": [
+            "Coordination"
+          ]
+        },
+        {
+          "key": "contacts",
+          "label": "Project contacts",
+          "fieldType": "LIST",
+          "isRequired": true,
+          "config": {
+            "tableColumns": [
+              "Name",
+              "Email",
+              "Role"
+            ],
+            "requiredColumns": [
+              "Name",
+              "Email"
+            ],
+            "projectAutomation": "CONTACTS",
+            "allowNotApplicable": true
+          }
+        },
+        {
+          "key": "milestones",
+          "label": "Project milestones",
+          "fieldType": "LIST",
+          "isRequired": true,
+          "config": {
+            "tableColumns": [
+              "Milestone",
+              "Description",
+              "Due Date",
+              "Responsible Party"
+            ],
+            "requiredColumns": [
+              "Milestone",
+              "Due Date"
+            ],
+            "projectAutomation": "MILESTONES",
+            "allowNotApplicable": true
+          }
+        },
+        {
+          "key": "deliverables",
+          "label": "Project deliverables",
+          "fieldType": "LIST",
+          "isRequired": true,
+          "config": {
+            "tableColumns": [
+              "Deliverable",
+              "Description",
+              "Due Date",
+              "Responsible Party"
+            ],
+            "requiredColumns": [
+              "Deliverable",
+              "Due Date"
+            ],
+            "projectAutomation": "DELIVERABLES",
+            "allowNotApplicable": true
+          }
+        }
+      ]
+    }
+  ]
+}

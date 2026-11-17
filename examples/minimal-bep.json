@@ -1,0 +1,24 @@
+{
+  "schemaFormat": "bepstudio-schema",
+  "schemaFormatVersion": "1.0",
+  "key": "minimal-bep",
+  "label": "Minimal BEP",
+  "version": "1.0.0",
+  "description": "An original BEP Studio example.",
+  "sections": [
+    {
+      "key": "project",
+      "title": "Project information",
+      "description": "Identify the project.",
+      "fields": [
+        {
+          "key": "project-name",
+          "label": "Project name",
+          "fieldType": "TEXT",
+          "isRequired": true,
+          "placeholder": "Project name"
+        }
+      ]
+    }
+  ]
+}

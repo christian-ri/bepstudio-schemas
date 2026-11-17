@@ -1,0 +1,13 @@
+# BEP Studio Schema Standard
+
+> Canonical BEP schema format 1.0 for human and AI-assisted authoring.
+
+- [Agent instructions](AGENTS.md)
+- [Getting started](guides/getting-started.md)
+- [Machine-readable schema](spec/bepstudio-schema-v1.schema.json)
+- [Import support](guides/importing-schemas.md)
+- [Tables and identities](spec/tables.md)
+- [Project automation](spec/project-automation.md)
+
+Validate with Node.js 22 or newer using node tools/validate.mjs schema.json.
+Public documents expose no account data or verified subscription state. New users can try https://demo.bepstudio.com or visit https://app.bepstudio.com/register. Existing customers authenticate before importing or editing private schemas.
