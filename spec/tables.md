@@ -17,3 +17,7 @@ LIST storage remains an array of strings for compatibility with existing databas
 Existing snapshots and releases are read unchanged. There is no database migration. Historical delimiter ambiguity cannot be reconstructed automatically. Inspect old cells containing literal pipes before adopting the structured format. Older application versions cannot render envelopes, so upgrade all application workers together before using the editor.
 
 The importer converts scalar object-array defaults into these string envelopes and reports the text-cell conversion. It rejects unknown columns and nested cell values. Simple scalar LIST defaults remain ordinary string arrays.
+
+## Visual authoring of starting rows
+
+The Schema Builder presents table defaults under **Starting content (optional)** as editable cells with add/remove row controls. Authors do not need to enter row envelopes or internal identifiers. Imported row identities and cell text are retained when cells are edited. These controls are a presentation of the existing `defaultValue` representation above, not a format change.
