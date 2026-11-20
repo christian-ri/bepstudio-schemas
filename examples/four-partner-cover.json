@@ -1,0 +1,230 @@
+{
+  "schemaFormat": "bepstudio-schema",
+  "schemaFormatVersion": "1.0",
+  "key": "four-partner-cover-example",
+  "label": "Four project partners cover",
+  "version": "1.1.0",
+  "description": "A controlled PDF cover with company identity.",
+  "ui": {
+    "cover": {
+      "blocks": [
+        "title",
+        "project",
+        "companies",
+        "metadata",
+        "image"
+      ],
+      "title": "Project BIM Execution Plan",
+      "imageField": "cover-image",
+      "companies": [
+        {
+          "nameField": "company-name",
+          "logoField": "company-logo",
+          "source": "automatic",
+          "addressLine1Field": "company-address-1",
+          "addressLine2Field": "company-address-2",
+          "selectionField": "company-selection"
+        },
+        {
+          "nameField": "company-name-2",
+          "logoField": "company-logo-2",
+          "source": "automatic",
+          "addressLine1Field": "company-address-1-2",
+          "addressLine2Field": "company-address-2-2",
+          "selectionField": "company-selection-2"
+        },
+        {
+          "nameField": "company-name-3",
+          "logoField": "company-logo-3",
+          "source": "automatic",
+          "addressLine1Field": "company-address-1-3",
+          "addressLine2Field": "company-address-2-3",
+          "selectionField": "company-selection-3"
+        },
+        {
+          "nameField": "company-name-4",
+          "logoField": "company-logo-4",
+          "source": "automatic",
+          "addressLine1Field": "company-address-1-4",
+          "addressLine2Field": "company-address-2-4",
+          "selectionField": "company-selection-4"
+        }
+      ],
+      "companyCount": 4,
+      "backgroundColor": "#0f2b63"
+    }
+  },
+  "sections": [
+    {
+      "key": "cover",
+      "title": "Cover information",
+      "description": "Choose or upload company branding for this document.",
+      "fields": [
+        {
+          "key": "company-name",
+          "label": "Company name",
+          "fieldType": "TEXT"
+        },
+        {
+          "key": "company-logo",
+          "label": "Company logo",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          }
+        },
+        {
+          "key": "cover-image",
+          "label": "Cover image",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          }
+        },
+        {
+          "key": "company-address-1",
+          "label": "Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-address-2",
+          "label": "Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-selection",
+          "label": "Company selection",
+          "fieldType": "TEXT",
+          "isRequired": false,
+          "config": {
+            "coverOnly": true,
+            "coverInternal": true
+          }
+        },
+        {
+          "key": "company-name-2",
+          "label": "Partner 2 Company name",
+          "fieldType": "TEXT"
+        },
+        {
+          "key": "company-logo-2",
+          "label": "Partner 2 Company logo",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          }
+        },
+        {
+          "key": "company-address-1-2",
+          "label": "Partner 2 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-address-2-2",
+          "label": "Partner 2 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-selection-2",
+          "label": "Partner 2 Company selection",
+          "fieldType": "TEXT",
+          "isRequired": false,
+          "config": {
+            "coverOnly": true,
+            "coverInternal": true
+          }
+        },
+        {
+          "key": "company-name-3",
+          "label": "Partner 3 Company name",
+          "fieldType": "TEXT"
+        },
+        {
+          "key": "company-logo-3",
+          "label": "Partner 3 Company logo",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          }
+        },
+        {
+          "key": "company-address-1-3",
+          "label": "Partner 3 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-address-2-3",
+          "label": "Partner 3 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-selection-3",
+          "label": "Partner 3 Company selection",
+          "fieldType": "TEXT",
+          "isRequired": false,
+          "config": {
+            "coverOnly": true,
+            "coverInternal": true
+          }
+        },
+        {
+          "key": "company-name-4",
+          "label": "Partner 4 Company name",
+          "fieldType": "TEXT"
+        },
+        {
+          "key": "company-logo-4",
+          "label": "Partner 4 Company logo",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          }
+        },
+        {
+          "key": "company-address-1-4",
+          "label": "Partner 4 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-address-2-4",
+          "label": "Partner 4 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          }
+        },
+        {
+          "key": "company-selection-4",
+          "label": "Partner 4 Company selection",
+          "fieldType": "TEXT",
+          "isRequired": false,
+          "config": {
+            "coverOnly": true,
+            "coverInternal": true
+          }
+        }
+      ]
+    }
+  ]
+}

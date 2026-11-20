@@ -19929,8 +19929,8 @@ var schemaInput = external_exports.object({
     blocks: external_exports.array(external_exports.enum(["title", "project", "metadata", "companies", "image", "text"])).min(1).max(6).refine((blocks) => new Set(blocks).size === blocks.length, "Cover blocks must be unique."),
     text: external_exports.string().max(400).optional(),
     imageField: keySchema.optional(),
-    companyCount: external_exports.union([external_exports.literal(1), external_exports.literal(2)]).optional(),
-    companies: external_exports.array(external_exports.object({ source: external_exports.enum(["automatic", "custom"]).optional(), selectionField: keySchema.optional(), nameField: keySchema.optional(), addressLine1Field: keySchema.optional(), addressLine2Field: keySchema.optional(), logoField: keySchema.optional() })).max(2).optional()
+    companyCount: external_exports.union([external_exports.literal(1), external_exports.literal(2), external_exports.literal(3), external_exports.literal(4)]).optional(),
+    companies: external_exports.array(external_exports.object({ source: external_exports.enum(["automatic", "custom"]).optional(), selectionField: keySchema.optional(), nameField: keySchema.optional(), addressLine1Field: keySchema.optional(), addressLine2Field: keySchema.optional(), logoField: keySchema.optional() })).max(4).optional()
   }).optional() }).optional(),
   exportFormats: external_exports.array(external_exports.string().max(120)).max(20).optional(),
   sections: external_exports.array(sectionSchema).min(1).max(limits.maxSections)
