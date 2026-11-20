@@ -19925,6 +19925,7 @@ var schemaInput = external_exports.object({
   sourceUrl: external_exports.string().url().optional(),
   ui: external_exports.object({ pdfRenderer: external_exports.enum(["psu", "generic"]).optional(), cover: external_exports.object({
     title: external_exports.string().max(120).optional(),
+    showAddresses: external_exports.boolean().optional(),
     backgroundColor: external_exports.string().regex(/^#[0-9a-fA-F]{6}$/, "Use a six-digit hex color.").optional(),
     blocks: external_exports.array(external_exports.enum(["title", "project", "metadata", "companies", "image", "text"])).min(1).max(6).refine((blocks) => new Set(blocks).size === blocks.length, "Cover blocks must be unique."),
     text: external_exports.string().max(400).optional(),

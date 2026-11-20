@@ -55,6 +55,9 @@
               "type": "string",
               "maxLength": 120
             },
+            "showAddresses": {
+              "type": "boolean"
+            },
             "backgroundColor": {
               "type": "string",
               "pattern": "^#[0-9a-fA-F]{6}$"

@@ -32,3 +32,9 @@ Cover output uses one portrait US Letter sheet (8.5 × 11 in). The visual Builde
 Three or four populated partner slots use a compact two-column, two-row grid with smaller logos/text and a reduced project image. Blank slots are omitted. Owner branding remains separate. The user’s Export settings selects Letter (default) or A4 for every page; the cover stays one page. In the schema, configure the maximum slots; actual partners are selected while completing the BEP, from participating non-owner organizations or through manual entry.
 
 [Complete four-partner JSON example](../examples/four-partner-cover.json).
+
+## Guided visual editor (Dev preview)
+
+The visual schema editor controls document title, background color, maximum partner count (1–4), project-image visibility and address visibility. `ui.cover.showAddresses` is an optional boolean (default true); address values are preserved even when hidden from the PDF. Existing JSON block ordering and source bindings remain supported for imports. Source-mode dropdowns and technical field bindings are not exposed in the normal UI.
+
+Editable schemas place Cover details first, with partner names/addresses/logos grouped by partner, followed by the project image. The BEP editor offers Choose organization or Enter company manually, then Change organization, Edit details and Remove on each company card. Choosing copies details once; manual edits and uploads remain saved snapshots. Published schema/project evidence is not rewritten.
