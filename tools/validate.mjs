@@ -19923,13 +19923,34 @@ var schemaInput = external_exports.object({
   version: external_exports.string().trim().regex(/^\d+\.\d+\.\d+(?:-[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/, "Schema version must use Semantic Versioning."),
   description: external_exports.string().max(limits.maxString).default(""),
   sourceUrl: external_exports.string().url().optional(),
-  ui: external_exports.object({ pdfRenderer: external_exports.enum(["psu", "generic"]).optional() }).optional(),
+  ui: external_exports.object({ pdfRenderer: external_exports.enum(["psu", "generic"]).optional(), cover: external_exports.object({
+    title: external_exports.string().max(120).optional(),
+    backgroundColor: external_exports.string().regex(/^#[0-9a-fA-F]{6}$/, "Use a six-digit hex color.").optional(),
+    blocks: external_exports.array(external_exports.enum(["title", "project", "metadata", "companies", "image", "text"])).min(1).max(6).refine((blocks) => new Set(blocks).size === blocks.length, "Cover blocks must be unique."),
+    text: external_exports.string().max(400).optional(),
+    imageField: keySchema.optional(),
+    companyCount: external_exports.union([external_exports.literal(1), external_exports.literal(2)]).optional(),
+    companies: external_exports.array(external_exports.object({ source: external_exports.enum(["automatic", "custom"]).optional(), selectionField: keySchema.optional(), nameField: keySchema.optional(), addressLine1Field: keySchema.optional(), addressLine2Field: keySchema.optional(), logoField: keySchema.optional() })).max(2).optional()
+  }).optional() }).optional(),
   exportFormats: external_exports.array(external_exports.string().max(120)).max(20).optional(),
   sections: external_exports.array(sectionSchema).min(1).max(limits.maxSections)
 }).superRefine((value, context) => {
+  if (value.ui?.cover) {
+    const fields = value.sections.flatMap((section) => section.fields);
+    if (value.ui.cover.companyCount && value.ui.cover.companyCount !== (value.ui.cover.companies?.length ?? 0)) context.addIssue({ code: external_exports.ZodIssueCode.custom, path: ["ui", "cover", "companyCount"], message: "Prepare one company slot per displayed company." });
+    for (const company of value.ui.cover.companies ?? []) if (company.source === "automatic" && (!company.nameField || !company.logoField)) context.addIssue({ code: external_exports.ZodIssueCode.custom, path: ["ui", "cover", "companies"], message: "Automatic company slots need name and logo fields to preserve the selected details." });
+    for (const company of value.ui.cover.companies ?? []) if (company.source === "automatic") {
+      for (const key of [company.nameField, company.addressLine1Field, company.addressLine2Field].filter(Boolean)) if (!["TEXT", "LONG_TEXT"].includes(fields.find((field) => field.key === key)?.fieldType ?? "")) context.addIssue({ code: external_exports.ZodIssueCode.custom, path: ["ui", "cover", "companies"], message: "Automatic company names and addresses need text questions." });
+    }
+    const bindings = [value.ui.cover.imageField, ...value.ui.cover.companies?.flatMap((company) => [company.selectionField, company.nameField, company.addressLine1Field, company.addressLine2Field, company.logoField]) ?? []].filter((key) => Boolean(key));
+    for (const key of bindings) if (fields.filter((field) => field.key === key).length !== 1) context.addIssue({ code: external_exports.ZodIssueCode.custom, path: ["ui", "cover"], message: `Cover field '${key}' must refer to exactly one question.` });
+    const images = [value.ui.cover.imageField, ...value.ui.cover.companies?.map((company) => company.logoField) ?? []].filter(Boolean);
+    for (const key of images) if (fields.find((field) => field.key === key)?.config?.mode !== "blob-image-upload") context.addIssue({ code: external_exports.ZodIssueCode.custom, path: ["ui", "cover"], message: `Cover image '${key}' must be an image upload question.` });
+  }
   if (!value.label && !value.name) context.addIssue({ code: external_exports.ZodIssueCode.custom, message: "A schema label or name is required." });
 });
 function validateFieldSemantics(schema, errors, warnings) {
+  for (const field of schema.sections.flatMap((section) => section.fields)) if (field.config?.coverInternal === true && (field.fieldType !== "TEXT" || field.isRequired || !schema.ui?.cover?.companies?.some((company) => company.selectionField === field.key))) errors.push(`${field.label}: internal cover metadata must be an optional TEXT company-selection field.`);
   const sectionKeys = /* @__PURE__ */ new Set();
   const fieldKeys = /* @__PURE__ */ new Set();
   const automationKeys = /* @__PURE__ */ new Set();

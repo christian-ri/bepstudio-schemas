@@ -14,3 +14,17 @@
 Fields accept `helpText`, `placeholder`, `isRequired`, optional `defaultValue`, and `sortOrder`. Defaults use their field's value type. No configurable Boolean presentation variants are exposed in this release. `config.condition` is retained for compatibility and generates a warning because runtime conditions are unsupported.
 
 Root `ui.pdfRenderer` supports `psu` and `generic`. Optional `exportFormats` metadata and existing field config extensions survive validation. Unknown root, section and field attributes are reported when they cannot be imported. Config extensions are retained as data and acquire behavior only through an implemented runtime consumer.
+
+### Development preview: PDF cover configuration
+
+The optional `ui.cover` object supports ordered `blocks`: `title`, `project`, `metadata`, `companies`, `image`, `text`. Each block appears at most once. Optional `title` (120 characters) and `text` (400) supply static text. `imageField` binds an image-upload question. Up to two `companies` entries bind `nameField` and `logoField`. Bindings must resolve to one unambiguous field key; image bindings require `config.mode: "blob-image-upload"`. Omit unused bindings. Existing schemas without this object retain their historic cover. Layout changes are preserved in published schema and project snapshots. This extension is initially available on the development platform.
+
+Cover output uses one portrait US Letter sheet (8.5 × 11 in). The visual Builder can create dedicated company name/image questions automatically. Bindings select schema questions; actual project organizations and uploaded images are selected when completing the BEP.
+
+### Automatic and custom company details (development preview)
+
+`ui.cover.companyCount` is 1 or 2. Each `companies` entry can declare `source: "automatic" | "custom"`, `nameField`, `addressLine1Field`, `addressLine2Field`, `logoField`, and `selectionField`. Automatic name/address bindings use TEXT or LONG_TEXT; logo bindings use a TEXT image-upload question. Automatic selects a participating project organization and copies its available name, address and logo once into ordinary saved field values. The owner is shown independently at the top right, using its organization logo or name. The lower slots represent project partners (usually designer and builder), not the owner. Automatic selection excludes the owner and requires an explicit partner choice. Custom values are entered and uploaded manually. Later profile or membership changes never replace either saved snapshot.
+
+`selectionField` is an optional TEXT question with `config.coverInternal: true` and `config.coverOnly: true`. It stores the BEP-specific input source and optional selected organization ID as JSON text, so Custom remains selected after saving/reopening. It is hidden from ordinary question editing and excluded from coverage metrics. It cannot be required. Company content fields remain normal authorable questions. Existing schemas without source/selection metadata keep their previous manual behavior. The Builder creates Automatic slots and a separate project-image question by default; project images are never inferred from company-logo questions. More than two organizations can be project participants; the cover deliberately shows only the chosen one or two.
+
+`ui.cover.backgroundColor` accepts a six-digit hex color, such as `"#0f2b63"`. Text, dividers, footer and the BEPStudio mark adapt to a contrasting foreground. Covers remain exactly one US Letter page. See [cover-page contract](cover-page.md).

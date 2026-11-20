@@ -47,6 +47,100 @@
             "psu",
             "generic"
           ]
+        },
+        "cover": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "backgroundColor": {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            "blocks": {
+              "minItems": 1,
+              "maxItems": 6,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "title",
+                  "project",
+                  "metadata",
+                  "companies",
+                  "image",
+                  "text"
+                ]
+              }
+            },
+            "text": {
+              "type": "string",
+              "maxLength": 400
+            },
+            "imageField": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "companyCount": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "const": 1
+                },
+                {
+                  "type": "number",
+                  "const": 2
+                }
+              ]
+            },
+            "companies": {
+              "maxItems": 2,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "enum": [
+                      "automatic",
+                      "custom"
+                    ]
+                  },
+                  "selectionField": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "nameField": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "addressLine1Field": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "addressLine2Field": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "logoField": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "blocks"
+          ]
         }
       }
     },
