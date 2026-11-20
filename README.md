@@ -39,4 +39,4 @@ The private application's `npm run schemas:public` regenerates the specification
 
 See [LICENSE](LICENSE) for original material. The included Zod dependency retains its MIT notice in [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt). For distribution maintenance, see [publishing](guides/publishing.md).
 
-Development preview: [configurable PDF covers and JSON contract](spec/cover-page.md) and [custom cover example](examples/custom-cover.json). Existing schemas retain their saved layouts.
+Application 0.13.0: [configurable PDF covers and JSON contract](spec/cover-page.md) and [custom cover example](examples/custom-cover.json). Existing schemas retain their saved layouts.

@@ -1,6 +1,6 @@
-# Configurable title pages — development preview
+# Configurable title pages — application 0.13.0
 
-This optional extension is available on dev.bepstudio.com. Production App and Demo may run an older version; validate against the target deployment before importing. The format remains 1.0; the extension is additive.
+This optional extension is supported by BEP Studio 0.13.0 on App, Demo and Dev. Older deployments may reject these optional properties; validate against the target application version before importing. The format remains 1.0; the extension is additive.
 
 ## Three independent identities
 
@@ -26,7 +26,7 @@ Put the following object in `ui.cover`; use field keys that exist in your schema
 }
 ```
 
-Name/address questions use TEXT or LONG_TEXT. Image questions use TEXT with `config.mode: "blob-image-upload"`. Optional `addressLine1Field`, `addressLine2Field` and `selectionField` are described in [field types](field-types.md#development-preview-pdf-cover-configuration). Selection metadata preserves Automatic/Custom choice; copied details and uploads are saved snapshots and are not overwritten by later organization edits.
+Name/address questions use TEXT or LONG_TEXT. Image questions use TEXT with `config.mode: "blob-image-upload"`. Optional `addressLine1Field`, `addressLine2Field` and `selectionField` are described in [field types](field-types.md#pdf-cover-configuration-0130). Selection metadata preserves Automatic/Custom choice; copied details and uploads are saved snapshots and are not overwritten by later organization edits.
 
 `blocks` contains 1–6 unique entries from title, project, metadata, companies, image, text. `title` is at most 120 characters; static `text` at most 400. `backgroundColor` is `#RRGGBB`; readable text, dividers, branding and footer adapt automatically. `companyCount` is 1, 2, 3 or 4 and matches the number of company entries. More project participants remain visible in the project team; the cover deliberately highlights up to four partners.
 
@@ -38,7 +38,7 @@ Three or four populated partner slots use a compact two-column, two-row grid wit
 
 [Complete four-partner JSON example](../examples/four-partner-cover.json).
 
-## Guided visual editor (Dev preview)
+## Guided visual editor
 
 The visual schema editor controls document title, background color, maximum partner count (1–4), project-image visibility and address visibility. `ui.cover.showAddresses` is an optional boolean (default true); address values are preserved even when hidden from the PDF. Existing JSON block ordering and source bindings remain supported for imports. Source-mode dropdowns and technical field bindings are not exposed in the normal UI.
 

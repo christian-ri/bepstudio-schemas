@@ -51,52 +51,16 @@
         }
       ],
       "companyCount": 4,
-      "backgroundColor": "#0f2b63"
+      "backgroundColor": "#0f2b63",
+      "showAddresses": true
     }
   },
   "sections": [
     {
       "key": "cover",
-      "title": "Cover information",
+      "title": "Cover details",
       "description": "Choose or upload company branding for this document.",
       "fields": [
-        {
-          "key": "company-name",
-          "label": "Company name",
-          "fieldType": "TEXT"
-        },
-        {
-          "key": "company-logo",
-          "label": "Company logo",
-          "fieldType": "TEXT",
-          "config": {
-            "mode": "blob-image-upload"
-          }
-        },
-        {
-          "key": "cover-image",
-          "label": "Cover image",
-          "fieldType": "TEXT",
-          "config": {
-            "mode": "blob-image-upload"
-          }
-        },
-        {
-          "key": "company-address-1",
-          "label": "Company address line 1",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
-        },
-        {
-          "key": "company-address-2",
-          "label": "Company address line 2",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
-        },
         {
           "key": "company-selection",
           "label": "Company selection",
@@ -105,36 +69,41 @@
           "config": {
             "coverOnly": true,
             "coverInternal": true
-          }
+          },
+          "sortOrder": 1
         },
         {
-          "key": "company-name-2",
-          "label": "Partner 2 Company name",
-          "fieldType": "TEXT"
+          "key": "company-name",
+          "label": "Company name",
+          "fieldType": "TEXT",
+          "sortOrder": 2
         },
         {
-          "key": "company-logo-2",
-          "label": "Partner 2 Company logo",
+          "key": "company-address-1",
+          "label": "Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 3
+        },
+        {
+          "key": "company-address-2",
+          "label": "Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 4
+        },
+        {
+          "key": "company-logo",
+          "label": "Company logo",
           "fieldType": "TEXT",
           "config": {
             "mode": "blob-image-upload"
-          }
-        },
-        {
-          "key": "company-address-1-2",
-          "label": "Partner 2 Company address line 1",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
-        },
-        {
-          "key": "company-address-2-2",
-          "label": "Partner 2 Company address line 2",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
+          },
+          "sortOrder": 5
         },
         {
           "key": "company-selection-2",
@@ -144,36 +113,41 @@
           "config": {
             "coverOnly": true,
             "coverInternal": true
-          }
+          },
+          "sortOrder": 6
         },
         {
-          "key": "company-name-3",
-          "label": "Partner 3 Company name",
-          "fieldType": "TEXT"
+          "key": "company-name-2",
+          "label": "Partner 2 Company name",
+          "fieldType": "TEXT",
+          "sortOrder": 7
         },
         {
-          "key": "company-logo-3",
-          "label": "Partner 3 Company logo",
+          "key": "company-address-1-2",
+          "label": "Partner 2 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 8
+        },
+        {
+          "key": "company-address-2-2",
+          "label": "Partner 2 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 9
+        },
+        {
+          "key": "company-logo-2",
+          "label": "Partner 2 Company logo",
           "fieldType": "TEXT",
           "config": {
             "mode": "blob-image-upload"
-          }
-        },
-        {
-          "key": "company-address-1-3",
-          "label": "Partner 3 Company address line 1",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
-        },
-        {
-          "key": "company-address-2-3",
-          "label": "Partner 3 Company address line 2",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
+          },
+          "sortOrder": 10
         },
         {
           "key": "company-selection-3",
@@ -183,36 +157,41 @@
           "config": {
             "coverOnly": true,
             "coverInternal": true
-          }
+          },
+          "sortOrder": 11
         },
         {
-          "key": "company-name-4",
-          "label": "Partner 4 Company name",
-          "fieldType": "TEXT"
+          "key": "company-name-3",
+          "label": "Partner 3 Company name",
+          "fieldType": "TEXT",
+          "sortOrder": 12
         },
         {
-          "key": "company-logo-4",
-          "label": "Partner 4 Company logo",
+          "key": "company-address-1-3",
+          "label": "Partner 3 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 13
+        },
+        {
+          "key": "company-address-2-3",
+          "label": "Partner 3 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 14
+        },
+        {
+          "key": "company-logo-3",
+          "label": "Partner 3 Company logo",
           "fieldType": "TEXT",
           "config": {
             "mode": "blob-image-upload"
-          }
-        },
-        {
-          "key": "company-address-1-4",
-          "label": "Partner 4 Company address line 1",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
-        },
-        {
-          "key": "company-address-2-4",
-          "label": "Partner 4 Company address line 2",
-          "fieldType": "TEXT",
-          "config": {
-            "coverOnly": true
-          }
+          },
+          "sortOrder": 15
         },
         {
           "key": "company-selection-4",
@@ -222,9 +201,53 @@
           "config": {
             "coverOnly": true,
             "coverInternal": true
-          }
+          },
+          "sortOrder": 16
+        },
+        {
+          "key": "company-name-4",
+          "label": "Partner 4 Company name",
+          "fieldType": "TEXT",
+          "sortOrder": 17
+        },
+        {
+          "key": "company-address-1-4",
+          "label": "Partner 4 Company address line 1",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 18
+        },
+        {
+          "key": "company-address-2-4",
+          "label": "Partner 4 Company address line 2",
+          "fieldType": "TEXT",
+          "config": {
+            "coverOnly": true
+          },
+          "sortOrder": 19
+        },
+        {
+          "key": "company-logo-4",
+          "label": "Partner 4 Company logo",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          },
+          "sortOrder": 20
+        },
+        {
+          "key": "cover-image",
+          "label": "Cover image",
+          "fieldType": "TEXT",
+          "config": {
+            "mode": "blob-image-upload"
+          },
+          "sortOrder": 21
         }
-      ]
+      ],
+      "sortOrder": 1
     }
   ]
 }
